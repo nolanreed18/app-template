@@ -22,6 +22,7 @@ here.
 | Path | What it is |
 |---|---|
 | `BLUEPRINT.md` | The architecture and the rules every app follows. The single source of truth; a new app's CLAUDE.md is made from it. |
+| `DESIGN.md` | The look and feel in words: palette, type, cards, badges, pills, empty states, phone-first checks. The code for it is `template/app/theme.py`. |
 | `KICKOFF_TEMPLATE.md` | The kickoff prompt with blanks that `/new-app` fills in. |
 | `CHECKLIST.md` | The human steps for any new app, with blanks. |
 | `template/` | Files every app copies as they are (database helper, theme, module-freshness guard, backup, test fixtures, CI, hooks, lint and Python pins). |

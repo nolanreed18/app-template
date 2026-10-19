@@ -27,7 +27,7 @@ anything, and tell me: it would belong to another app.
 Attach `nolanreed18/app-template` with read access (the add_repo tool).
 Copy everything under its `template/` folder into this repository as it is,
 changing only the app's name where it appears. Read `BLUEPRINT.md` for the
-rules and the file layout, and the files under `reference/` for the pattern
+rules and the file layout, `DESIGN.md` for how pages should look, and the files under `reference/` for the pattern
 of the parts you write yourself: `app/ui.py` (keep the setup, sign-in,
 appearance, card, empty, disclosure, sections, delete_button, round_key,
 badge and md helpers; replace the app-specific badge tables), `app/data.py`

@@ -51,7 +51,7 @@ README.md            what it does, first-time setup, Google sign-in, running loc
   if any, is `numeric(12,2)` in Postgres and `Decimal` in Python.
 - All SQL lives in `app/data.py`; calculations in `app/logic.py` (pure).
   Pages only lay out and call those two.
-- The look lives in `app/theme.py`: light (default) and dark palettes
+- The look lives in `app/theme.py` (described in DESIGN.md): light (default) and dark palettes
   applied per run from the `settings` table, plus one stylesheet;
   `.streamlit/config.toml` equals the light palette (a test checks). Pages
   use `ui.card()`, `ui.empty()` and the badge helpers, never emoji or raw

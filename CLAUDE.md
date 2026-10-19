@@ -16,8 +16,8 @@ can do.
 - **Keep the template current**: when told a generic file changed in an
   app (`template/` or `reference/` material), port it here in a pull
   request, keeping file names and app-neutral wording. `BLUEPRINT.md` is the
-  single source of truth for the rules; `KICKOFF_TEMPLATE.md` and the
-  README must agree with it.
+  single source of truth for the rules and `DESIGN.md` for the look;
+  `KICKOFF_TEMPLATE.md` and the README must agree with them.
 
 ## Rules
 

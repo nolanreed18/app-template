@@ -19,6 +19,8 @@ can do.
   single source of truth for the rules and `DESIGN.md` for the look;
   `KICKOFF_TEMPLATE.md` and the README must agree with them.
 
+- **Start an iOS + web app**: the `ios-web/` track. In a session on the new app's repo, attach this repo, copy everything inside `ios-web/` to the new repo's root and follow `ios-web/PLAYBOOK.md` (its `tools/init.mjs` fills the placeholders). Improvements made in Lodebreaker or a later ios-web app are ported back into `ios-web/` in a pull request, app-neutral.
+
 ## Rules
 
 - Nothing personal goes here: no data, no secrets, no connection strings,
@@ -27,4 +29,4 @@ can do.
   app-specific names (`tracker` as a throwaway Postgres role name is fine).
 - `reference/` files are the Career Tracker's, kept as examples; don't
   "improve" them here, replace them with newer copies when asked.
-- Work on a branch and open a pull request for every change.
+- Work on a branch and open a pull request for every change, then merge it yourself once its checks are green (the owner, Oct 30, 2026: "you do it always"). Never ask the owner to click merge.

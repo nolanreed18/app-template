@@ -1,0 +1,26 @@
+{
+  "name": "app-shell",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Capacitor iOS shell around the single-file web app in ../src",
+  "scripts": {
+    "build": "node ../tools/build.mjs --app",
+    "sync": "node ../tools/build.mjs --app && npx cap sync",
+    "add-ios": "node ../tools/build.mjs --app && npx cap add ios && node ../tools/ios-setup.mjs",
+    "assets": "node ../tools/assets.mjs && npx capacitor-assets generate --ios --iconBackgroundColor '#0b0e14' --iconBackgroundColorDark '#0b0e14' --splashBackgroundColor '#0b0e14' --splashBackgroundColorDark '#0b0e14' && rm -f ios/App/App/Assets.xcassets/Splash.imageset/splash-2732x2732*.png",
+    "ios": "npm run sync && npx cap open ios",
+    "ship": "./ship-ios.sh"
+  },
+  "dependencies": {
+    "@capacitor/core": "^8.6.0",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/ios": "^8.6.0",
+    "@capacitor/preferences": "^8.0.1",
+    "@capacitor/splash-screen": "^8.0.2",
+    "@capacitor/status-bar": "^8.0.4"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.6.0"
+  }
+}

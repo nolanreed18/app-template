@@ -8,6 +8,8 @@ here.
 
 ## Starting a new app
 
+Two tracks: the Streamlit + Neon blueprint below, and `ios-web/` for a phone game or app that ships to the web and TestFlight (see `ios-web/PLAYBOOK.md`).
+
 1. Open a Claude Code cloud session on this repository and type
    `/new-app` followed by a few words about the app ("habit tracker").
 2. Answer its questions. It writes three files under `apps/<name>/`:
@@ -29,6 +31,7 @@ here.
 | `reference/` | Career Tracker files showing the pattern for the parts each app writes itself (UI helpers, data and logic modules, a page, the schema, the tests, README, CLAUDE.md). |
 | `apps/` | One folder per app started from here, with its kickoff prompt, spec and checklist. |
 | `.claude/skills/new-app/` | The `/new-app` skill. |
+| `ios-web/` | The second track: a one-file web game or app with a Capacitor iOS shell, shipped by cloud sessions to Cloudflare Pages and TestFlight (internal and external groups) and verified end to end, mirrored from Lodebreaker. Start with `ios-web/PLAYBOOK.md`. |
 
 ## Keeping it current
 

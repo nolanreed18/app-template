@@ -1,0 +1,11 @@
+{
+  "appId": "__APP_STORE_APP_ID__",
+  "issuer": "__ASC_ISSUER_ID__",
+  "macKeyId": "__MAC_KEY_ID__",
+  "workflowId": "__XCODE_CLOUD_WORKFLOW_ID__",
+  "groups": {
+    "internal": { "id": "__INTERNAL_GROUP_ID__", "name": "__APP_NAME__ Internal" },
+    "external": { "id": "__EXTERNAL_GROUP_ID__", "name": "Friends" }
+  },
+  "web": "__WEB_URL__/"
+}

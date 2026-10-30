@@ -19,6 +19,8 @@ can do.
   single source of truth for the rules and `DESIGN.md` for the look;
   `KICKOFF_TEMPLATE.md` and the README must agree with them.
 
+- **Start an iOS + web app**: the `ios-web/` track. In a session on the new app's repo, attach this repo, copy everything inside `ios-web/` to the new repo's root and follow `ios-web/PLAYBOOK.md` (its `tools/init.mjs` fills the placeholders). Improvements made in Lodebreaker or a later ios-web app are ported back into `ios-web/` in a pull request, app-neutral.
+
 ## Rules
 
 - Nothing personal goes here: no data, no secrets, no connection strings,

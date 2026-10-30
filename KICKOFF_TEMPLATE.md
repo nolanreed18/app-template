@@ -15,7 +15,8 @@ and never touch my other repositories.
 
 About me: I'm new to GitHub and coding. Explain in plain language, do the
 work yourself, and end every message with a short numbered list of anything
-only I can do (accounts, secrets, clicking merge).
+only I can do (accounts, secrets). Merge your own pull requests once CI is
+green; never ask me to click merge.
 
 Safety first: this session must never use a real database. Tests run only
 against `TEST_DATABASE_URL`, the throwaway Postgres the session hook starts.
@@ -48,7 +49,7 @@ CLAUDE.md. Write this app's `CLAUDE.md` from BLUEPRINT's rules.
    settings functions, `app/logic.py` with the shared helpers, `app/ui.py`,
    `app/theme.py`, a Home page that draws its empty state, `CLAUDE.md`, and
    a README whose first-time setup section is a numbered list I can follow.
-   CI must be green. Tell me how to deploy once it's merged.
+   CI must be green; then merge it. Tell me how to deploy once it's merged.
 2. **One PR per page after that**, in the sidebar order of the spec. Each
    brings its data functions, its logic with tests, the page with a
    draws-empty and a draws-with-data test, and any README lines.

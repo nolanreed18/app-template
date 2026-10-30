@@ -10,7 +10,7 @@ next one is mostly copying and the rules never need re-learning.
 | App | Streamlit (Python 3.13), one `app/Home.py` plus `app/pages/*.py` | Pages are plain Python; the look is one theme file. |
 | Hosting | Streamlit Community Cloud, deployed from `main` | Free, redeploys on merge. One private app per account; the rest public. |
 | Database | Neon Postgres, one project per app | Free tier, HTTPS endpoint for cloud sessions, branches for experiments. |
-| Code | GitHub, public repository, branch + pull request for every change | CI runs lint and tests on every PR; the owner clicks merge. |
+| Code | GitHub, public repository, branch + pull request for every change | CI runs lint and tests on every PR; the session merges its own PR once CI is green. |
 | Backups | GitHub Actions weekly, every table to CSV inside a password-locked 7z | The artifact is public to signed-in GitHub users, so it must be encrypted. |
 | Building | Claude Code cloud sessions, one per task, each ending in a PR | Sessions start a throwaway Postgres for tests; they never touch the real database. |
 | Sign-in | Google (`st.login`, emails in `ALLOWED_EMAILS`) or `APP_PASSWORD` | Every page behind it; locked when neither is set. |

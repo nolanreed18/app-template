@@ -29,4 +29,4 @@ can do.
   app-specific names (`tracker` as a throwaway Postgres role name is fine).
 - `reference/` files are the Career Tracker's, kept as examples; don't
   "improve" them here, replace them with newer copies when asked.
-- Work on a branch and open a pull request for every change.
+- Work on a branch and open a pull request for every change, then merge it yourself once its checks are green (the owner, Oct 30, 2026: "you do it always"). Never ask the owner to click merge.

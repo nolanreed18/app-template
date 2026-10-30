@@ -68,10 +68,10 @@ Never paste a key into a chat, commit it, or send it anywhere. A lost or leaked 
 ### 7. The Claude cloud environment (once, plus each app's host) — You
 At claude.ai/code, the environment menu in a session's title bar → Edit. One environment serves every app.
 - **Network access:** Limited. **Allowed domains:** `api.appstoreconnect.apple.com` and the app's host (`<app>.pages.dev`; add each new app's host). Leave "Allow package managers" ticked (npm needs it).
-- **Environment variables** (not Network secrets: the scripts sign a token with the key themselves): `ASC_KEY_ID`, `ASC_ISSUER_ID`, and `ASC_KEY_P8` = the `.p8` as one line (on the Mac: `base64 -i AuthKey_<KEYID>.p8 | tr -d '\n' | pbcopy`, then paste; the raw file text works too).
+- **Environment variables** (not Network secrets: the scripts sign a token with the key themselves): `ASC_KEY_ID`, `ASC_ISSUER_ID`, and `ASC_KEY_P8` = the `.p8` as one line (on the Mac: `base64 -i AuthKey_<KEYID>.p8 | tr -d '\n' | pbcopy`, then paste; the raw file text works too). Fastest: one Terminal line copies all of it, then ⌘V into the Environment variables box and Save: `printf 'ASC_KEY_ID=<KEYID>\nASC_KEY_P8=%s\n' "$(base64 -i ~/Downloads/AuthKey_<KEYID>.p8)" | pbcopy`. This paste is the owner's: no Claude session (cloud or Mac, with or without computer use) will type or paste an API key into a web form, however it is asked. A key saved under Network secrets is invisible to the scripts (Lodebreaker lost an hour to it).
 - **Permission mode:** pick **Auto** in the dropdown next to the prompt box. Cloud sessions ignore `bypassPermissions` in settings files; `.claude/settings.json` already allows every tool a ship uses, and is read when the session has this one repository.
 
-**Check**, in a new session (settings reach new sessions only): `node tools/asc.mjs GET /apps` prints 200 and lists the app; `curl -sI https://<app>.pages.dev | head -1` prints 200.
+**Check**, in a new session (settings reach new sessions only; a session can start one itself with the `create_session` tool rather than asking the owner to): `node tools/asc.mjs GET /apps` prints 200 and lists the app; `curl -sI https://<app>.pages.dev | head -1` prints 200.
 
 ### 8. Xcode and the Xcode Cloud workflow — Mac
 By hand, or say "set up Xcode" to the Mac Claude session (step 10), which does it with computer use.
@@ -166,6 +166,10 @@ Say "ship". The session pushes main and testflight and waits on ship-status. The
 | run `FAILED` | `node tools/asc.mjs GET /ciBuildRuns/<id>/actions`, then `/ciBuildActions/<id>/issues` |
 | `-Friends` or `READY_FOR_BETA_SUBMISSION` | the External Testing post-action is missing; `--fix` does it meanwhile |
 | `WAITING_FOR_BETA_REVIEW` | the first external build of a version: Apple reviews it, usually within a day |
+
+- **A cloud clone is shallow.** `git fetch --unshallow origin main` before building, or the build id counts only the fetched commits (the ship skill does it).
+- **A build Xcode Cloud is still uploading has no attributes.** `ship-status` reads `/builds/<id>` and waits; it threw on the first live test before that.
+- **Network access applies at once; environment variables only to new sessions.** Lodebreaker's first no-Mac test ship (Oct 30) went from push to both groups and an approved review in 7 min 50 s, with `--fix` adding both groups before the Internal post-action ran.
 
 ## Verify the whole pipeline on a fresh app
 After setup, once, and again whenever the pipeline changes. Record each result in `docs/HISTORY.md`.

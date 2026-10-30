@@ -24,7 +24,9 @@ async function snap(){const o={sha:short,web:await web()};
  const runs=(await all('/ciWorkflows/'+CFG.workflowId+'/buildRuns?limit=200')).filter(r=>(r.attributes.sourceCommit?.commitSha||'').startsWith(sha));
  const run=runs.sort((a,b)=>b.attributes.number-a.attributes.number)[0];if(!run)return o;
  const ra=run.attributes;o.run={id:run.id,n:ra.number,progress:ra.executionProgress,status:ra.completionStatus};
- const b=((await get('/ciBuildRuns/'+run.id+'/builds'))||{}).data||[];if(!b.length)return o;const bd=b[0];
+ const b=((await get('/ciBuildRuns/'+run.id+'/builds'))||{}).data||[];if(!b.length)return o;let bd=b[0];
+ // while Xcode Cloud is still uploading, the run lists the build without attributes
+ if(!bd.attributes)bd=((await get('/builds/'+bd.id))||{}).data;if(!bd||!bd.attributes)return o;
  o.build={id:bd.id,version:bd.attributes.version,state:bd.attributes.processingState};
  // A build's groups: Apple answers 403 on /builds/<id>/betaGroups, even to an Admin key (Lodebreaker, Oct 30); the filter works.
  o.groups=(((await get('/betaGroups?filter[builds]='+bd.id))||{}).data||[]).map(g=>g.id);
